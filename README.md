@@ -1,55 +1,28 @@
-# BlueCubeMod
+# GravisXTtoSwitch
 
-ESP32 based GameCube Controller Bluetooth conversion for Nintendo Switch
+Work in progress (w.i.p.) to adapt a Gameport Gamepad with a custom two wire vendor protocol to a Nintendo Switch Bluetooth Gamepad. This project builds on all what has previously been done to adapt a Gamecube Controller to Nintendo Switch Bluetooth.
 
-v1:
-Mac/PC/PS4 supported (tested using Dolphin Emulator on Mac, for Switch/RaspberryPi, use an 8Bitdo USB adapter)
+This is the Gamepad in question:
 
-v2: 
-Switch support only - no adapter required
+<img align="left" src="https://raw.githubusercontent.com/bluesceada/GravisXTtoSwitch/References/Gravis_XT_Gamepad.jpg" alt="kicad schematic"/>
 
-## Wiring:
+Original project there: https://github.com/NathanReeves/BlueCubeMod (the fork was done from a project that was adapted to a more recent ESP-IDF version). Thanks to all the effort from various people that has lead to that previous project.
 
-- Connect pins 23 and 18 to GameCube controller's data pin (Red)
+## Information collection
 
-- Connect GND to controller's ground pin (Black)
+ - Linux Kernel Driver for Gravis GrIP protocol devices - most probably including the Gamepad at hand: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/drivers/input/joystick/grip.c
+ - References/Gravis_XT_Gamepad.jpg: The Gamepad I have here in front of me. It is NOT the USB version (which had USB Data lines on two of the Gameport pins, and a simple passive adapter would be enough.)
+ - References/Gravis_XT_idle_8MHz-sampled.sr: PulseView file, Logic Analyzer Measurements of the two relevant data pins of the Gamepad
 
-![alt text](Modding%20Resources/GameCube%20Controller%20Pinout%20SideView.jpg?raw=true)
+## Progress
 
-![alt text](Modding%20Resources/GameCube%20Controller%20Pinout%20TopView.png?raw=true)
+[x] Successfully compile existing project (BlueCubeModv2) - works with ESP-IDF stable, v4.4 https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32/get-started/index.html
 
-## Build instructions(v2):
+[/] Get information on Gravis Xterminator Gamepad protocol
 
-- Use this esp-idf fork here: https://github.com/NathanReeves/esp-idf
+[ ] Decode Gravis Xterminator Protocol successfully on ESP32
 
-- Set up the esp-idf environment: https://docs.espressif.com/projects/esp-idf/en/latest/get-started/
+[ ] Integrate into BlueCubeModv2
 
-- Get the BlueCubeModv2 firmware
-
-- If you haven’t flashed an ESP32 project before, you need the port name of ESP32 for the config file. If using unix system, to get the port name of a USB device run:
-
-`ls /dev`
-
-- Find your device on the list and copy it. It should look something like: /dev/cu.usbserial-DO01EXOV or /dev/cu.SLAB_USBtoUART
-
-- cd into project folder and run:
-
-`make menuconfig`
-
-- Paste your port name into Serial Flasher Config -> Default Serial Port
-
-- Compile and flash the program, run:
-
-`make flash monitor`
-
-
-Resources used:
-
-http://www.int03.co.uk/crema/hardware/gamecube/gc-control.htm
-
-https://github.com/dekuNukem/Nintendo_Switch_Reverse_Engineering
-
-https://github.com/timmeh87/switchnotes
-
-Thank you to [@Molorius]( https://github.com/Molorius ) for implementing the bluedroid Classic stack for esp
+[ ] Have fun on Nintendo Switch with a decades old Gamepad
 
