@@ -2,11 +2,12 @@
 
 Work in progress (w.i.p.) to adapt a Gameport Gamepad with a custom two wire vendor protocol to a Nintendo Switch Bluetooth Gamepad. This project builds on all what has previously been done to adapt a Gamecube Controller to Nintendo Switch Bluetooth.
 
-This is the Gamepad in question:
-
-<img align="left" src="https://raw.githubusercontent.com/bluesceada/GravisXTtoSwitch/References/Gravis_XT_Gamepad.jpg" alt="kicad schematic"/>
-
 Original project there: https://github.com/NathanReeves/BlueCubeMod (the fork was done from a project that was adapted to a more recent ESP-IDF version). Thanks to all the effort from various people that has lead to that previous project.
+
+The following picture shows the Gamepad in question. What is not seen on the backside are two digital and two analog shoulder/trigger buttons on each side.
+
+<img src="https://github.com/bluesceada/GravisXTtoSwitch/blob/master/References/Gravis_XT_Gamepad.jpg" alt="gamepad"/>
+
 
 ## Information collection
 
